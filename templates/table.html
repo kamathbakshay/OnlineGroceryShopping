@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table
+{
+     margin-left:auto;
+     margin-right:auto;
+     font-family: arial, sans-serif;
+     border-collapse: collapse;
+   }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+h2
+{
+    width: 100%;
+    text-align:center;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>{{ item }}</h2>
+
+<table>
+      <tr>
+      {% set list1 = list[0] %}
+          {% for key,value in list1.items() %}
+              {% if(key!="productdesc" and key!="imagesrc" ) %}
+                  <th>{{ key }}</th>
+               {% endif %}
+          {% endfor %}
+      </tr>
+
+
+      {% for i in list %}
+      <tr>
+        {% for key,value in i.items() %}
+            {% if(key!="productdesc" and key!="imagesrc" ) %}
+               <td> {{ i[key] }} </td>
+            {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+
+</table>
+
+</body>
+</html>

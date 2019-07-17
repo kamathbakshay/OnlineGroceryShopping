@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LOGIN</title>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="login2.css">
+
+  <style>
+            form{
+          padding: 2rem 1rem;
+          width: 50%;
+          margin-top: 10%;
+          margin-bottom:40%;
+          margin-left:20%;
+          margin-right:20%;
+          background-color: #9E9E9E;
+          border-radius: .3rem;
+          }
+          body
+          {
+            background: url( https://cdn.pixabay.com/photo/2017/03/05/20/08/grocery-store-2119702_1280.jpg);
+            background-size: cover;
+            background-position: center;
+          }
+          body, html {
+              background-image: url("blue-nature-red-white-balloons-hd-wallpapers.jpg");
+              background-position: center;
+              background-size: 1400px 1400px;
+          }
+          h1
+          {
+          	     margin-left:auto;
+     			margin-right:auto;
+          }
+  </style>
+</head>
+
+
+<body>
+      <h1> ADD PRODUCT </h1>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <form method="POST" action="/saveproductInsert">
+
+
+                <div class="form-group">
+                  <label>Category_ID</label>
+                  <input type="text" name= "catid" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Price_per_unit</label>
+                  <input type="text" name= "priceperunit" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label>Product_name</label>
+                  <input type="text" name= "pname" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>StockLeft</label>
+                  <input type="text" name= "stockleft" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Product_description</label>
+                  <input type="text" name= "productdesc" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Image_src</label>
+                  <input type="text" name= "imagesrc" class="form-control">
+                </div>
+
+                <input type="submit" >
+          </form>
+      </div>
+
+
+</body>
+</html>

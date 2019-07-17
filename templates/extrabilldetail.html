@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LOGIN</title>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <style>
+          form{
+          padding: 2rem 1rem;
+          width: 50%;
+          margin-top: 10%;
+          margin-bottom:40%;
+          margin-left:20%;
+          margin-right:20%;
+          background-color: #9E9E9E;
+          border-radius: .3rem;
+          }
+
+          h1
+          {
+          	     margin-left:auto;
+     			       margin-right:auto;
+          }
+  </style>
+</head>
+
+
+<body>
+      <h1> EXTRA DETAILS</h1>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <form method="POST" action="/bill1">
+
+                 <select name=tim>
+                    <option value="Morning(7-12)">Morning(7-12)</option>
+                    <option value="Afternoon(1-4)">Afternoon(1-4)</option>
+                    <option value="Evening(4-7)">Evening(4-7)</option>
+                    <option value="Night(7-10)">Night(7-10)</option>
+                 </select>
+
+
+                <input type="submit" value="Place Order" >
+          </form>
+        </div>
+      </div>
+
+
+</body>
+</html>

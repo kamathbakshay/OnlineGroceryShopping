@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<div lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Simple Invoice - Bootsnipp.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    table
+     {
+         font-family: arial, sans-serif;
+         border-collapse: collapse;
+         margin-right:300px;
+     }
+
+td, th
+    {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+   input
+   {
+       background-size: 50px;
+       background-color : snow;
+   }
+</style>
+</head>
+                <form style="float: right" action="/">
+                        <input type="submit" value="Continue Shopping">
+                </form>
+ <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+    		<div class="invoice-title">
+    			<h3 class="pull-right">Order ID #{{ orderlis[0]['oid'] }}</h3> <h1>Your Order is Placed</h1>
+                <p> Mongo status = {{ n }}</p>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address><br><br>
+    				<strong>Billed To:</strong>
+    					{{ name[0]['cname'] }}<br>
+    				</address>
+    			</div>
+    		</div>
+
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    					<strong>Payment Method:</strong>
+    					Cash On Delevery<br>
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+    					<strong>Order Date:</strong>
+    					{{ orderlis[0]['orderdate'] }}<br>
+    				</address>
+    			</div>
+                <div class="col-xs-6 text-right">
+                    <address>
+                        <strong>Order Will be delivered by:</strong>
+                        {{ deleveryDate }}<br><br>
+                    </address>
+                </div>
+
+                </div>
+    		</div>
+    	</div>
+    </div>
+
+
+
+
+    				<h3 class="panel-title"><strong>Order summary</strong></h3>
+    			</div>
+    					<table style="float: left" class="table table-condensed">
+    						<thead>                             
+                                    <tr>
+                                        <td>ProductName</td>
+                                        <td>Quantity</td>
+                                        <td>Amount</td>
+                                    </tr>
+    						</thead>
+    						<tbody>
+
+                              {% for i in currentorder %}
+                              <tr>
+                                {% for key,value in i.items() %}
+                                        {% if key=="quantity" %}
+                                            <td>{{ i['pname'] }}</td>
+
+                                            {% if   i['stockleft'] < 0  %}
+                                                <td> {{ (i[key])|int +(i['stockleft'])|int }} </td>
+
+                                            {% else %}
+                                                <td> {{ i[key] }} </td>
+                                            {% endif %}
+                                            <td>{{ i['amount'] }}</td>
+                                        {% endif %}
+                                {% endfor %}
+                              </tr>
+                              {% endfor %}
+
+
+    							<tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Total= {{ total[0]['total1'] }}</td>
+    							</tr>
+
+
+
+    							
+    						</tbody>
+    					</table>
+                 </div>
+
+    	<h3 class="panel-title"><strong>this ORDER WILL BE DELIVERED AS SOON AS IT WILL BE IN STOCK</strong></h3>
+    			</div>
+    					<table style="float: left" class="table table-condensed">
+    						<thead>
+                                    <tr>
+                                        <td>ProductName</td>
+                                        <td>Quantity</td>
+                                    </tr>
+    						</thead>
+    						<tbody>
+
+
+                              {% for i in list %}
+                              <tr>
+                                {% for key,value in i.items() %}
+                                    {% if key!="productdesc" and key!="imagesrc" and key!="stockleft" and key!="amount" and key!='pid'  %}
+                                        {% if key=="quantity"%}
+                                            {% if   i['stockleft']<0  %}
+                                                <td> {{ (i['stockleft'])|int|abs }} </td>
+                                            {% endif %}
+                                            {% else %}
+                                                <td> {{ i[key] }} </td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                              </tr>
+                              {% endfor %}
+
+    						</tbody>
+    					</table>
+                 </div>
+
+    			</div>
+
+    		</div>
+    	</div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+		</script>
+</body>
+</html>

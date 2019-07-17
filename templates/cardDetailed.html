@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+
+
+  .txt
+  {
+    width:50%;
+      float:right;
+      float:top;
+  }
+    img
+    {
+        margin-left: 20px;
+    }
+
+
+</style>
+<body>
+
+{% set list1= list[0] %}
+<div class="card">
+    <h2>{{list1['pname']}}</h2>
+    <img src={{ list1['imagesrc'] }} alt="car" style="width:80%;max-width:320px">
+
+
+    <div class="txt">
+        <p>
+              {{ list1['productdesc'] }}
+        </p>
+
+
+        <h4> PRICE :{{ list1['priceperunit'] }} <h4>
+        <h4> Quantity available: {{ list1['stockleft'] }} </h4>
+
+         <form method="POST" action="/cart/{{ list1['pname'] }}">
+            <div class="form-group">
+              <label for="labelusername">Quantiy of {{ list1['pname'] }} required</label>
+              <input type="number" name=quantitylist min="1" class="form-control" required>
+            </div>
+            <br>
+            <input type="submit" value="ADD to CART" class="sub" >
+         </form>
+
+     </div>
+
+</div>
+</body>
+</html>
