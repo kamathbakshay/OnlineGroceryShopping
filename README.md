@@ -19,7 +19,7 @@ Things you need to install
 2. pycharm (can work without this but recommended)
 
 
-## Installing
+## Installing & Set everything up
 
 Download my repo into local machine
 
