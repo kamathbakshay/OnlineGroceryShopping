@@ -1,8 +1,11 @@
-from flask import Flask, flash, redirect, render_template, request, session, url_for
+from flask import Flask , flash, redirect, render_template, request, session, url_for
 from flask_session import Session
 from passlib.apps import custom_app_context as pwd_context
 from tempfile import mkdtemp
 from helpers import *
+#from .helpers import *
+
+
 import datetime
 # configure application
 from flask import Flask,session
@@ -15,9 +18,8 @@ import pymongo
 
 
 
-
-
 app = Flask(__name__)
+
 cart={}
 time =""
 # ensure responses aren't cached
@@ -39,8 +41,8 @@ class Database:
     def __init__(self):
         host = "127.0.0.1"
         user = "root"
-        password = "ROOT"
-        db = "onlineshopping"
+        password = "root1234"
+        db = "OnlineShopping"
 
         self.con = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
                                    DictCursor)
@@ -174,9 +176,9 @@ def admin():
     cids = db.cur.fetchall()
 
     # schema-> pid |pname |priceperunit |cid |totalQuantity |totalprice (of each product buyd)
-    db.cur.execute("select  pname, sum(quantity) as totalQuantity from product,phistory where product.pid = phistory.pid group by phistory.pid order by totalQuantity desc")
+    db.cur.execute("select  phistory.pid,pname,priceperunit,product.catid,category.categoryname, sum(quantity) as totalQuantity,sum(quantity)*priceperunit as totalPrice from product,phistory,category where product.pid = phistory.pid and category.catid=product.catid group by phistory.pid order by product.catid,totalQuantity desc")
     History = db.cur.fetchall()
-    '''''
+
     #category name from cid
     db.cur.execute(
     "select  * from category")
@@ -212,9 +214,8 @@ def admin():
     print("History=",History)
     print("total=",total)
 
-'''
-    print("history: ",History)
-    return render_template("admin.html",History=History,)
+
+    return render_template("admin.html")
 
 @app.route("/logout")
 def logout():
@@ -521,9 +522,8 @@ def contact():
 
 
 
-
-# if __name__ == "__main__":
-#    app.run()
+if __name__ == "__main__":
+    app.run()
 # @app.route("/")
 # @login_required
 # def index():
