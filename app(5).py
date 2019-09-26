@@ -1,8 +1,11 @@
-from flask import Flask, flash, redirect, render_template, request, session, url_for
+from flask import Flask , flash, redirect, render_template, request, session, url_for
 from flask_session import Session
 from passlib.apps import custom_app_context as pwd_context
 from tempfile import mkdtemp
 from helpers import *
+#from .helpers import *
+
+
 import datetime
 # configure application
 from flask import Flask,session
@@ -15,9 +18,8 @@ import pymongo
 
 
 
-
-
 app = Flask(__name__)
+
 cart={}
 time =""
 # ensure responses aren't cached
@@ -39,8 +41,8 @@ class Database:
     def __init__(self):
         host = "127.0.0.1"
         user = "root"
-        password = "ROOT"
-        db = "onlineshopping"
+        password = "root1234"
+        db = "OnlineShopping"
 
         self.con = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
                                    DictCursor)
@@ -520,9 +522,8 @@ def contact():
 
 
 
-
-# if __name__ == "__main__":
-#    app.run()
+if __name__ == "__main__":
+    app.run()
 # @app.route("/")
 # @login_required
 # def index():

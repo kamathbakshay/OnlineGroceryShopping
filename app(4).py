@@ -39,8 +39,8 @@ class Database:
     def __init__(self):
         host = "127.0.0.1"
         user = "root"
-        password = "ROOT"
-        db = "onlineshopping"
+        password = "root1234"
+        db = "OnlineShopping"
 
         self.con = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
                                    DictCursor)
@@ -518,8 +518,8 @@ def contact():
 
 
 
-# if __name__ == "__main__":
-#    app.run()
+if __name__ == "__main__":
+    app.run()
 # @app.route("/")
 # @login_required
 # def index():
